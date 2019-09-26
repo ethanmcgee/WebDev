@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript">
+        function sayHello(){
+            var message = $('#content').html();
+
+            alert(message);
+        }
+        function changeText(){
+            var oldText = $('#test').innerHTML;
+            
+        }
+        function sayGoodbye(){
+            $('#content').html("goodbye");
+
+        }
+
+        function copyAddress(){
+           
+            
+        }
+        function showAddress(){
+            /*var shown = $('#ship_address').css("display");
+            if (shown == "none"){
+                $('#ship_address').show();
+            }
+            else{
+                $('#ship_address').hide();
+
+            }*/
+            $("#ship_address").toggle();
+        }
+
+        $(document).ready(function(event){
+
+            $("form").on("click", "#ship_different", function(){
+                showAddress();
+            });
+
+            $("#copyIt").on("click", function(event){
+                $('#ship_street').val( $('#bill_street').val() );
+
+                $('#ship_city').val( $('#bill_city').val() );
+
+                $('#ship_state').val( $('#bill_state').val() );
+            
+                $('#ship_zip').val( $('#bill_zip').val() );
+
+            });
+
+            $("#sayHello").on("click", function(event){
+                var message = $('#content').html();
+                alert(message);
+            });
+
+            $("#sayGoodbye").on("click", function(event){
+                $('#content').html("goodbye");
+            });
+
+        });
+    </script>   
+    </script>
+
+  
+</head>
+<body>
+
+<div id='content'> Content Goes Here</div>
+<div id = 'test'> This is a test</div>
+
+<button  id="sayHello">Say Hello</button>
+<button  id="sayGoodbye">Say Goodbye</button>
+
+<br>
+
+<!--<button onmouseover="sayHello();">Say Hello on Hover</button>-->
+<br>
+<br>
+
+<form>
+    <h1>Billing Address</h1>
+
+    <div>Street:</div>
+        <div> <input type="text" name="bill_street" id="bill_street"></div>
+    <div>City:</div>
+        <div><input type="text" name="bill_city" id="bill_city"></div>
+    <div>State:</div> 
+        <div><input type="text" name="bill_state" id="bill_state"></div>
+    <div>Zip:</div>
+        <div><input type="text" name="bill_zip" id="bill_zip"></div>
+
+    <div>Ship to different address: <input type="checkbox" id="ship_different" ></div> 
+
+    <button onclick="copyAddress();" id="copyIt">Copy Address</button>
+    <div id="ship_address" style="display:none;">
+
+    <h2>Shipping address</h2>
+
+    <div>Street:</div>
+        <div> <input type="text" name="ship_street" id="ship_street"></div>
+    <div>City:</div>
+        <div><input type="text" name="ship_city" id="ship_city"></div>
+    <div>State:</div> 
+        <div><input type="text" name="ship_state" id="ship_state"></div>
+    <div>Zip:</div>
+        <div><input type="text" name="ship_zip" id="ship_zip"></div>
+     </div>
+    
+    
+</form>
+
+
+</body>
+
+
+
+</html>
